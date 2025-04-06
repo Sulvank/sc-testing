@@ -6,8 +6,6 @@ import "forge-std/Test.sol";
 import "../src/Calculadora.sol";
 
 contract CalculadoraTest is Test {
-
-
     Calculadora public calculadora;
     uint256 public firstResult = 100;
     address public admin = vm.addr(1);
@@ -15,7 +13,6 @@ contract CalculadoraTest is Test {
 
     function setUp() public {
         calculadora = new Calculadora(firstResult, admin);
-
     }
 
     // Unit testing
@@ -49,8 +46,8 @@ contract CalculadoraTest is Test {
     }
 
     function testCanNotMultiply2LargeNumbers() public {
-        uint256 firstNumber_ = 2**128;
-        uint256 secondNumber_ = 2**128;
+        uint256 firstNumber_ = 2 ** 128;
+        uint256 secondNumber_ = 2 ** 128;
 
         vm.expectRevert();
         calculadora.multiplier(firstNumber_, secondNumber_);
@@ -88,7 +85,6 @@ contract CalculadoraTest is Test {
         vm.stopPrank();
     }
 
-
     function testDefaultCanNotCallDivisionCorrectly() public {
         uint256 firstNumber_ = 5;
         uint256 secondNumber_ = 2;
@@ -118,5 +114,4 @@ contract CalculadoraTest is Test {
         calculadora.division(firstNumber_, secondNumber_);
         vm.stopPrank();
     }
-
 }

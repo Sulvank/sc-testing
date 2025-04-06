@@ -3,7 +3,6 @@
 pragma solidity 0.8.28;
 
 contract Calculadora {
-
     // Variables
     uint256 public result;
     address public admin;
@@ -19,6 +18,7 @@ contract Calculadora {
         require(msg.sender == admin, "Not allowed");
         _;
     }
+
     constructor(uint256 firstResult_, address admin_) {
         result = firstResult_;
         admin = admin_;
