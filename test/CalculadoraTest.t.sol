@@ -109,7 +109,7 @@ contract CalculadoraTest is Test {
     // Fuzzing testing
 
     function testFuzzingDivision(uint256 firstNumber_, uint256 secondNumber_) public {
-        vm.assume(b != 0);
+        vm.assume(secondNumber_ != 0);
         vm.startPrank(admin);
 
         calculadora.division(firstNumber_, secondNumber_);
